@@ -1,19 +1,17 @@
 import {
   Typography,
-  Box,
   Card,
   CardMedia,
   CardContent,
   Grid,
-
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({filterData,search}) => {
+const Product = ({ filterData, search }) => {
   const [products, setProducts] = useState([]);
+  
   const fetchproducts = async () => {
-    console.log(filterData)
     let response = await fetch(`${process.env.REACT_APP_URL}music/products`);
     let data = await response.json();
     data = data.filter((product) => {
@@ -46,39 +44,38 @@ const Product = ({filterData,search}) => {
 
   useEffect(() => {
     fetchproducts();
-  }, [filterData,search]);
-  
+  }, [filterData, search, fetchproducts]); // Added fetchproducts to the dependency array
+
   return (
-    <Grid container spacing={2} >
-    {products.map((product) => (
-      <Grid item xs={6} sm={6} md={4} lg={3}>
-      <Card sx={{ maxWidth: 250, height: 380, mb:'50px' }} >
-      <Link to={`/ProductDetail/${product._id}`}>
-      <CardMedia
-        component="img"
-        image={product.imgSrc}
-        key={product._id}
-        alt={product._id} 
-        sx={{objectFit: 'contain', height: 180}}
-      />
-      </Link>
-      <CardContent sx={{
-        textAlign: 'center'
-      }}>
-        <Typography>
-        {product.Brand} {product.Model}
-        </Typography>
-        <Typography>
-        {product.Selling_Price}
-        </Typography>
-        <Typography>
-         {product.Colour} | {product.Form_Factor}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Grid container spacing={2}>
+      {products.map((product) => (
+        <Grid item xs={6} sm={6} md={4} lg={3} key={product._id}>
+          <Card sx={{ maxWidth: 250, height: 380, mb: '50px' }}>
+            <Link to={`/ProductDetail/${product._id}`}>
+              <CardMedia
+                component="img"
+                image={product.imgSrc}
+                alt={product._id}
+                sx={{ objectFit: 'contain', height: 180 }}
+              />
+            </Link>
+            <CardContent sx={{
+              textAlign: 'center'
+            }}>
+              <Typography>
+                {product.Brand} {product.Model}
+              </Typography>
+              <Typography>
+                {product.Selling_Price}
+              </Typography>
+              <Typography>
+                {product.Colour} | {product.Form_Factor}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
     </Grid>
-    ))}
-  </Grid>
   );
 };
 

@@ -24,7 +24,7 @@ const CheckoutProduct = () => {
   useEffect(() => {
     const storedCart = cartitem || [];
     setCartItems(storedCart);
-  }, []);
+  }, [cartitem]);
 
   const totalMRP = cartItems.reduce((total, item) => total + (item.quantity*item.Selling_Price), 0);
   const deliveryFee = 45;

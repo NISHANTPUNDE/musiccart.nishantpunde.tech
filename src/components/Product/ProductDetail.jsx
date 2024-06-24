@@ -23,7 +23,6 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
-import { ViewListRoundedIcon } from '@mui/icons-material/ViewListRounded';
 import toast, { Toaster } from 'react-hot-toast';
 const ProductDetail = () => {
   let navigate = useNavigate();

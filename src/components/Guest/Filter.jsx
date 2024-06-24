@@ -1,7 +1,6 @@
-import { Box, Select, InputLabel, Typography } from "@mui/material";
+import { Box, Select,  } from "@mui/material";
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
-import SelectInput from "@mui/material/Select/SelectInput";
 import {useState,useEffect,useMemo} from 'react';
 
 const Filter = ({filterData,setFilterData,setProductView,productView}) => {

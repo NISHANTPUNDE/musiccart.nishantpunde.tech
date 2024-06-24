@@ -58,6 +58,7 @@ const GuestHeaderCard = () => {
               width={"100%"}
               style={{ objectFit: "contain", marginTop:'-12%'}}
               src={ladki}
+              alt="ladki"
             />
           </Box>
         </Box>

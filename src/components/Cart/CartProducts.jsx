@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Box,
   Grid,
@@ -107,7 +107,7 @@ const CartProducts = () => {
           ))}
           <Typography variant="h6">{cartitem.length} Item(s)</Typography>
         </Grid>
-        <Grid item xs={12} md={4} display={cartitem.length == 0 ? "none" : "grid" }>
+        <Grid item xs={12} md={4} display={cartitem.length === 0 ? "none" : "grid" }>
           <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 1 }}>
             <Typography variant="h6" gutterBottom>
               PRICE DETAILS
